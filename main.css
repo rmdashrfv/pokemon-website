@@ -14,6 +14,10 @@ body {
   transition: transform 0.5s;
 }
 
+.pokemon-card-flash {
+  animation: flash 1s;
+}
+
 .pokemon-card:hover {
   transform: scale(1.01);
   border: 2px solid dodgerblue;
@@ -47,4 +51,16 @@ div[id^="pokemon-"] {
   width: 80px;
   margin: 0 auto;
   display: block;
+}
+
+@keyframes flash {
+  0% {
+    background-color: aquamarine;
+  }
+  50% {
+    background-color: red;
+  }
+  100% {
+    background-color: white;
+  }
 }
