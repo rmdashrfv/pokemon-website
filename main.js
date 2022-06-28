@@ -6,6 +6,7 @@ const pokemon = [
 
 const containerDiv = document.querySelector('#container')
 const newBtn = document.querySelector('#new-pokemon-btn')
+const rosterDiv = document.querySelector('#roster')
 
 newBtn.addEventListener('click', () => {
   let num = prompt('ENTER A POKEMON NUMBER')
