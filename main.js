@@ -20,6 +20,12 @@ pokemon.map((element, index) => {
   h3.innerText = element.name
   div.setAttribute('class', 'pokemon-card') // setting the class of the div
   let img = document.createElement('img') // creating the img element itself
+  div.addEventListener('click', () => {
+    let audioUrl = `https://play.pokemonshowdown.com/audio/cries/${element.name.toLowerCase()}.mp3`
+    let audio = document.createElement('audio')
+    let source = document.createElement('source')
+    console.log('audio', audioUrl)
+  })
   img.src = imgUrl
   div.append(img, h3) // append the img element to the div
   containerDiv.append(div)
