@@ -11,6 +11,7 @@ const newBtn = document.querySelector('#new-pokemon-btn')
 const rosterDiv = document.querySelector('#roster')
 
 newBtn.addEventListener('click', async () => {
+  if (userRoster.length >= 6) return;
   let num = prompt('ENTER A POKEMON NUMBER')
   console.log('Number entered', num)
   let imgUrl = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${num}.png`
@@ -29,6 +30,8 @@ newBtn.addEventListener('click', async () => {
   let img = document.createElement('img')
   img.setAttribute('src', imgUrl)
   img.setAttribute('class', 'roster-img')
+  let btn = document.createElement('button')
+  btn.innerText = "X"
   let position = document.querySelector(`#pokemon-${userRoster.length + 1}`)
   position.addEventListener('click', () => {
     position.classList.add('animate__animated')
@@ -39,7 +42,13 @@ newBtn.addEventListener('click', async () => {
     }, 1300)
     audio.play()
   })
-  position.append(img, h3, audio)
+  btn.addEventListener('click', () => {
+    position.removeEventListener('click')
+    source.setAttribute('src', '')
+    audio.innerHTML = ''
+    position.innerHTML = ''
+  })
+  position.append(img, h3, audio, btn)
   userRoster.push(num)
 })
 
